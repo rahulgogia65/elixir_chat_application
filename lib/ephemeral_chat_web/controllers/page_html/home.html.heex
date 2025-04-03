@@ -1,0 +1,54 @@
+<.flash_group flash={@flash} />
+
+<div class="bg-gray-100 min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-extrabold text-gray-900">Ephemeral Chat</h2>
+        <p class="mt-2 text-sm text-gray-600">
+          Self-destructing messages with temporary identities
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-lg font-medium text-gray-900">Features</h3>
+          <ul class="mt-2 list-disc list-inside text-sm text-gray-600 space-y-1">
+            <li>Anonymous temporary identities</li>
+            <li>Self-destructing messages (5 min default)</li>
+            <li>Room codes for easy sharing</li>
+            <li>Private whispers that disappear after being read</li>
+            <li>Live typing indicators</li>
+          </ul>
+        </div>
+
+        <div class="mt-6">
+          <div class="relative">
+            <div class="absolute inset-0 flex items-center">
+              <div class="w-full border-t border-gray-300"></div>
+            </div>
+            <div class="relative flex justify-center text-sm">
+              <span class="px-2 bg-white text-gray-500">Get Started</span>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <a
+              href="/login"
+              class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              Enter Anonymously
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-6 text-center text-xs text-gray-500">
+          <p>
+            Messages expire after 5 minutes. Rooms expire after 24 hours of inactivity.
+            Your anonymous identity expires after 30 minutes of inactivity.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

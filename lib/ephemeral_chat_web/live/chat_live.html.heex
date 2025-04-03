@@ -1,0 +1,96 @@
+<div class="max-w-screen-xl mx-auto px-4 py-8">
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+    <div class="p-6 bg-gray-100 border-b">
+      <h1 class="text-2xl font-bold text-gray-800">
+        Ephemeral Chat
+      </h1>
+      
+      <p class="text-gray-600">
+        Welcome, <span class="font-semibold"><%= @user.username %></span>! Your anonymous session will expire after 30 minutes of inactivity.
+      </p>
+    </div>
+    
+    <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <h2 class="text-lg font-bold text-gray-800 mb-4">Join a Chat Room</h2>
+        
+        <.form for={@room_form} phx-submit="join_room" class="space-y-4">
+          <div>
+            <.input
+              field={@room_form[:code]}
+              label="Enter Room Code"
+              placeholder="6-character code"
+              autocomplete="off"
+              required
+              class="w-full"
+            />
+          </div>
+          
+          <div>
+            <.button type="submit" phx-disable-with="Joining..." class="w-full">
+              Join Room
+            </.button>
+          </div>
+        </.form>
+      </div>
+      
+      <div>
+        <h2 class="text-lg font-bold text-gray-800 mb-4">Create a New Room</h2>
+        
+        <.form for={@create_room_form} phx-submit="create_room" class="space-y-4">
+          <div>
+            <.input
+              field={@create_room_form[:name]}
+              label="Room Name"
+              placeholder="Give your room a name"
+              autocomplete="off"
+              required
+              class="w-full"
+            />
+          </div>
+          
+          <div>
+            <.input
+              field={@create_room_form[:message_ttl]}
+              type="number"
+              label="Message Timeout (seconds)"
+              placeholder="Default: 300 (5 minutes)"
+              value="300"
+              min="60"
+              max="3600"
+              required
+              class="w-full"
+            />
+            <p class="text-sm text-gray-500 mt-1">Messages will be deleted after this many seconds (min: 60, max: 3600)</p>
+          </div>
+          
+          <div>
+            <.button type="submit" phx-disable-with="Creating..." class="w-full">
+              Create Room
+            </.button>
+          </div>
+        </.form>
+      </div>
+    </div>
+    
+    <div class="p-6 bg-gray-100 border-t">
+      <h2 class="text-lg font-bold text-gray-800 mb-4">How It Works</h2>
+      
+      <ul class="list-disc list-inside text-gray-600 space-y-2">
+        <li>All messages self-destruct after 5 minutes</li>
+        
+        <li>Rooms expire after 24 hours of inactivity</li>
+        
+        <li>Your anonymous identity is <span class="font-semibold">{@user.username}</span></li>
+        
+        <li>Send private "whisper" messages that disappear once read</li>
+      </ul>
+      
+      <div class="mt-6 text-center">
+        <.link navigate={~p"/"} class="text-blue-600 hover:underline">
+          Logout
+        </.link>
+      </div>
+    </div>
+  </div>
+</div>
